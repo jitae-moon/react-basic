@@ -16,3 +16,9 @@ let backtick = `my last name is ${myName}`; // Template literal
 // Boolean type
 let isGood = true;
 let isBad = false;
+
+// Null type
+let empty = null;
+
+// Undefined
+let none;
