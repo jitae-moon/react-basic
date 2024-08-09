@@ -8,8 +8,20 @@
 // }
 
 const Button = ({text, color, children}) => {
+    // 이벤트 객체로 전달
+    const onClickButton = (e) => {
+        // Todo
+        console.log(e);
+    }
+
     return (
-        <button style={{
+        <button 
+        // onClick={() => {
+        //     alert(text);
+        // }}
+        onClick={onClickButton}
+        // onMouseEnter={onClickButton}
+        style={{
             color: color
         }}>{text} - {color} - {children}</button>
     )
