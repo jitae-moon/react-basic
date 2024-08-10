@@ -1,31 +1,27 @@
-import './App.css'
-import Header from './components/Header'
-import Main from './components/Main'
-import Footer from './components/Footer'
-import Button from './components/Button'
+import './App.css';
+import {useState} from 'react';
 
 // Parent component & Root Component
 function App() {
-
-  const buttonProps = {
-    text: 'mail',
-    color: 'red',
-    a: 1,
-    b: 2
-  }
+  const [count, setCount] = useState(0);
+  const [light, setLight] = useState('OFF');
 
   return (
     <>
-    <Button {...buttonProps} />
-    <Button text={'mail'} color={'red'} a={1} b={2} />
-    <Button text={'cafe'} color={'blue'} />
-    <Button text={'blog'} />
-    <Button>
-      <div>child node</div>
-    </Button>
-    <Button>
-      <Header />
-    </Button>
+    <div>
+      <h1>{light}</h1>
+      <button
+      onClick={() => {
+        setLight(light === 'ON' ? 'OFF' : 'ON');
+      }}
+      >{light === 'ON' ? 'OFF' : 'ON'}</button>
+    </div>
+    <div>
+    <h1>{count}</h1>
+    <button onClick={() => {
+      setCount(count + 1);
+    }}>+</button>
+    </div>
     </>
   );
 }
