@@ -1,4 +1,4 @@
-import {useState} from 'react';
+import {useState, useRef} from 'react';
 // name
 // birth
 // country
@@ -11,18 +11,30 @@ const Register = () => {
         memo: ''
     });
 
+    const countRef = useRef(0);
+    const inputRef = useRef();
+
     const onChange = (e) => {
+        countRef.current++;
+
         setInput({
             ...input,
             [e.target.name]: e.target.value
         });
     }
 
+    const onSubmit = () => {
+        if (input.name === '') {
+            inputRef.current.focus();
+        }
+    }
+
     return (
         <>
         <div>
+
             <div>
-                <input name="name" value={input.name} placeholder={"name"} onChange={onChange} />
+                <input name="name" value={input.name} placeholder={"name"} onChange={onChange} ref={inputRef} />
             </div>
             <div>
                 <input type="date" name="birth" value={input.birth} onChange={onChange} />
@@ -37,6 +49,8 @@ const Register = () => {
             <div>
                 <textarea name="memo" value={input.memo} onChange={onChange} />
             </div>
+
+            <button onClick={onSubmit}>Submit</button>
         </div>
         </>
     );
