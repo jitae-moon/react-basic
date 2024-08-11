@@ -4,45 +4,38 @@ import {useState} from 'react';
 // country
 // detail
 const Register = () => {
-    const [name, setName]  = useState('');
-    const [birth, setBirth] = useState('');
-    const [country, setCountry] = useState('');
-    const [memo, setMemo] = useState('');
+    const [input, setInput] = useState({
+        name: '',
+        birth: '',
+        country: '',
+        memo: ''
+    });
 
-    const onChangeName = (e) => {
-        setName(e.target.value);
-    }
-
-    const onChangeBirth = (e) => {
-        setBirth(e.target.value);
-    }
-
-    const onChangeCountry = (e) => {
-        setCountry(e.target.value);
-    }
-
-    const onChangeMemo = (e) => {
-        setMemo(e.target.value);
+    const onChange = (e) => {
+        setInput({
+            ...input,
+            [e.target.name]: e.target.value
+        });
     }
 
     return (
         <>
         <div>
             <div>
-                <input value={name} placeholder={"name"} onChange={onChangeName} />
+                <input name="name" value={input.name} placeholder={"name"} onChange={onChange} />
             </div>
             <div>
-                <input type="date" value={birth} onChange={onChangeBirth} />
+                <input type="date" name="birth" value={input.birth} onChange={onChange} />
             </div>
             <div>
-                <select value={country} onChange={onChangeCountry}>
+                <select name="country" value={input.country} onChange={onChange}>
                     <option></option>
                     <option value="kr">Republic of Korea</option>
                     <option value="us">US</option>
                 </select>
             </div>
             <div>
-                <textarea value={memo} onChange={onChangeMemo} />
+                <textarea name="memo" value={input.memo} onChange={onChange} />
             </div>
         </div>
         </>
