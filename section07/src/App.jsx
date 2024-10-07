@@ -10,12 +10,16 @@ function App() {
 
   const isMounted = useRef(false);
 
+  useEffect(() => {
+    console.log(`count = ${count}`);
+  }, [count]); // dependency array(deps)
+
   // 1. mount
   useEffect(() => {
     console.log('mount');
-  }, []);
+  })
 
-  // 2. update
+  // 2. update(deps 생략)
   useEffect(() => {
     if (!isMounted.current) {
       isMounted.current = true;

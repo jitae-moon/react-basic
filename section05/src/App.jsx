@@ -1,4 +1,5 @@
 import './App.css';
+import Register from './components/Register';
 import HookExample from './components/HookExample';
 
 function App() {
@@ -6,6 +7,7 @@ function App() {
   return (
     <>
     <HookExample />
+    <Register />
     </>
   );
 }

@@ -4,6 +4,7 @@ import Viewer from './components/Viewer';
 import Controller from './components/Controller';
 
 function App() {
+  // State lifting -> state 부모 component로 끌어올리기
   const [count, setCount] = useState(0)
 
   const onClickBtn = (value) => {

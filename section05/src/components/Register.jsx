@@ -11,6 +11,7 @@ const Register = () => {
         memo: ''
     });
 
+    // useRef 리렌더링 일어나지 않음, dom 요소 조작 가능
     const countRef = useRef(0);
     const inputRef = useRef();
 
